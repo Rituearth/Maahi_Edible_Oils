@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Maahi Edible Oils and our commitment to pure, heritage oils">
+    <title>About Us - Maahi Edible Oils</title>
+    <link rel="icon" type="image/jpg" href="https://bhbe8jcfcuqg0rmn.public.blob.vercel-storage.com/mahi_logo-lC7zptgxXhLtDTt1b7XjeU4DcloF6n.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <style>
+        /* Mode of Preparation Section Styles */
+        .preparation-mode {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+            overflow: hidden;
+        }
+        
+        .preparation-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .preparation-text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+            padding-right: 20px;
+        }
+        
+        .preparation-text h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .preparation-text h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #e67e22;
+        }
+        
+        .preparation-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .preparation-text .emoji {
+            font-size: 1.3rem;
+            margin-right: 5px;
+        }
+        
+        .preparation-visual {
+            flex: 0.8;
+            min-width: 280px;
+            max-width: 400px;
+            position: relative;
+        }
+        
+        .preparation-image {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            background-color: #f5f5f5;
+            transition: transform 0.3s ease;
+        }
+        
+        .preparation-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            aspect-ratio: 4/3;
+        }
+        
+        .preparation-image:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .preparation-text, .preparation-visual {
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .preparation-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .preparation-text {
+                padding-right: 0;
+                text-align: center;
+            }
+            
+            .preparation-visual {
+                width: 80%;
+                max-width: 350px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .preparation-mode {
+                padding: 30px 0;
+            }
+            
+            .preparation-visual {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://bhbe8jcfcuqg0rmn.public.blob.vercel-storage.com/mahi_logo-lC7zptgxXhLtDTt1b7XjeU4DcloF6n.jpg" alt="Maahi Edible Oils Logo" class="logo-img">
+                    <span class="logo-text">Maahi</span>
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fa-solid fa-seedling"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html"><span>Home</span></a></li>
+                <li><a href="about.html" class="active"><span>About Us</span></a></li>
+                
+                <li><a href="contact.html"><span>Contact</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="about-hero-background"></div>
+            <div class="about-hero-overlay"></div>
+            <div class="container">
+                <h1 data-aos="fade-up">About Maahi Edible Oils</h1>
+                <p data-aos="fade-up" data-aos-delay="300">Committed to bringing pure, heritage oils to your table</p>
+            </div>
+        </section>
+
+        <section class="about-content">
+            <div class="container">
+                <div class="mission-vision">
+                    <div class="mission" data-aos="fade-up">
+                        <h2>Our Mission</h2>
+                        <p>To provide the highest quality heritage oils while promoting sustainable farming practices and supporting local farmers.</p>
+                    </div>
+                    <div class="vision" data-aos="fade-up" data-aos-delay="200">
+                        <h2>Our Vision</h2>
+                        <p>To be the leading provider of wholesome oils, setting industry standards for quality and sustainability.</p>
+                    </div>
+                </div>
+
+                <div class="process">
+                    <h2 data-aos="fade-up">Our Process</h2>
+                    <div class="process-steps">
+                        <div class="step" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-seedling"></i>
+                            <h3>Heritage Farming</h3>
+                            <p>We source our ingredients from certified farms that follow sustainable practices.</p>
+                        </div>
+                        <div class="step" data-aos="fade-up" data-aos-delay="300">
+                            <i class="fas fa-industry"></i>
+                            <h3>Expeller Pressed</h3>
+                            <p>Our oils are extracted using traditional expeller-pressing methods to preserve nutrients.</p>
+                        </div>
+                        <div class="step" data-aos="fade-up" data-aos-delay="500">
+                            <i class="fas fa-flask"></i>
+                            <h3>Quality Testing</h3>
+                            <p>Rigorous quality testing ensures the highest standards of purity and safety.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mode of Preparation Section -->
+                <section class="preparation-mode" data-aos="fade-up">
+                    <div class="container">
+                        <div class="preparation-container">
+                            <div class="preparation-text" data-aos="fade-right">
+                                <h2>Mode of Preparation</h2>
+                                <p><span class="emoji">🌿</span> Our oils are extracted using the Expeller Pressed method—a traditional mechanical process that preserves the oil's <span class="emoji">💧</span>Essence, <span class="emoji">🌾</span>Wholesomeness, and <span class="emoji">🔥</span>Vitality without any chemical interference.</p>
+                                <p>This method ensures purity, flavor, and nutritional value, staying true to our <span class="emoji">🌿</span>Heritage of quality.</p>
+                            </div>
+                            <div class="preparation-visual" data-aos="fade-left">
+                                <div class="preparation-image">
+                                    <img src="https://bhbe8jcfcuqg0rmn.public.blob.vercel-storage.com/20250423_0203_Green%20Text%20Bottle_remix_01jsfk590mfs68s34bp47gjafr-sN6ybGn8Tqx92r1vZzyNj7l99Zom6R.png" alt="Expeller Pressed Oil Process" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Founder's Quote Section -->
+                <section class="founder-quote" data-aos="fade-up">
+                    <div class="quote-container">
+                        <div class="quote-content">
+                            <p class="quote-text">Your health is our top priority over cost, as your well-being is invaluable and we believe in traditional extraction methods to preserve high nutritional values</p>
+                            <div class="quote-attribution">Maahi Edible Oils</div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="benefits">
+                    <h2 data-aos="fade-up">Benefits of Heritage Oils</h2>
+                    <div class="benefits-grid">
+                        <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-heart"></i>
+                            <h3>Heart Health</h3>
+                            <p>Rich in wholesome fats that support cardiovascular health.</p>
+                        </div>
+                        <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-brain"></i>
+                            <h3>Brain Function</h3>
+                            <p>Essential fatty acids support cognitive function and mental clarity.</p>
+                        </div>
+                        <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Immune System</h3>
+                            <p>Natural antioxidants help boost immune system function.</p>
+                        </div>
+                        <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+                            <i class="fas fa-leaf"></i>
+                            <h3>Natural Purity</h3>
+                            <p>No chemicals or preservatives, just pure heritage goodness.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Approvals and Certifications Section -->
+                <section class="approvals">
+                    <div class="container">
+                        <h2 data-aos="fade-up">Our Certifications</h2>
+                        <p class="approvals-description" data-aos="fade-up" data-aos-delay="100">Our products have received certifications from leading regulatory bodies, ensuring the highest standards of quality, safety, and authenticity.</p>
+                        
+                        <div class="approvals-grid">
+                            <div class="approval-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="approval-img">
+                                    <img src="https://bhbe8jcfcuqg0rmn.public.blob.vercel-storage.com/FSSAI_logo-DYRIobrpV0dmHiA98MBCmyfcOISuaM.png" alt="FSSAI Certification">
+                                </div>
+                                <h3>FSSAI Certified</h3>
+                                <p>Our products comply with the Food Safety and Standards Authority of India regulations, ensuring they meet the highest food safety standards.</p>
+                            </div>
+                            
+                            <div class="approval-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="approval-img">
+                                    <img src="https://bhbe8jcfcuqg0rmn.public.blob.vercel-storage.com/FDA-HsvKLVBZoZwxXb0fcFSBVh3oYUZ2BG.webp" alt="FDA Approved">
+                                </div>
+                                <h3>FDA Registered</h3>
+                                <p>All our products are FDA Registered, confirming they meet international standards for safety, purity, and quality.</p>
+                            </div>
+                            
+                            <div class="approval-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="approval-img">
+                                    <img src="https://bhbe8jcfcuqg0rmn.public.blob.vercel-storage.com/Make-in-India-fYzGbQTg7HRYlyhQFkS9oMO3KS2Cvl.jpg" alt="Make in India">
+                                </div>
+                                <h3>Make in India</h3>
+                                <p>Proud to be part of the Make in India initiative, our products are locally sourced and manufactured, supporting Indian agriculture and industry.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox for image preview -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img src="" alt="Expeller Pressed Oil" id="lightbox-img">
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: maahiedibleoils.bobbili@gmail.com</p>
+                    <p>Phone: +918839511896</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Maahi Edible Oils. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS animation library
+            AOS.init({
+                duration: 800,
+                easing: 'ease',
+                once: true
+            });
+
+            // Dynamic color change on scroll
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Mobile menu toggle functionality
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuToggle && navLinks) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    document.body.classList.toggle('nav-open');
+                    
+                    // Update ARIA state
+                    const isExpanded = this.classList.contains('active');
+                    this.setAttribute('aria-expanded', isExpanded);
+                });
+                
+                // Close menu when clicking on links
+                navLinks.querySelectorAll('a').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        mobileMenuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        document.body.classList.remove('nav-open');
+                        mobileMenuToggle.setAttribute('aria-expanded', false);
+                    });
+                });
+            }
+            
+            // Lightbox functionality
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.querySelector('.lightbox-close');
+            
+            // Open lightbox when clicking on image
+            const preparationImage = document.querySelector('.preparation-image');
+            if (preparationImage) {
+                preparationImage.addEventListener('click', function() {
+                    lightboxImg.src = this.querySelector('img').src;
+                    lightboxImg.alt = this.querySelector('img').alt;
+                    lightbox.classList.add('active');
+                });
+            }
+            
+            // Close lightbox
+            if (lightboxClose) {
+                lightboxClose.addEventListener('click', function() {
+                    lightbox.classList.remove('active');
+                });
+            }
+            
+            // Close lightbox when clicking outside the image
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html> 

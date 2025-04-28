@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Peanut Oil - Pure, natural, and heart-healthy">
+    <title>Chikki - Maahi Edible Oils</title>
+    <link rel="icon" type="image/jpg" href="https://bhbe8jcfcuqg0rmn.public.blob.vercel-storage.com/mahi_logo-lC7zptgxXhLtDTt1b7XjeU4DcloF6n.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Product Page Styles */
+        .product-page {
+            padding: 60px 0 40px;
+            background-color: #f9f9f9;
+        }
+        
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+        
+        .product-title {
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .product-price {
+            display: inline-block;
+            margin-left: 15px;
+            color: #e67e22;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        
+        .product-price::before {
+            content: '₹';
+            font-size: 1.8rem;
+            margin-right: 2px;
+        }
+        
+        .product-summary {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .parameters-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #e67e22;
+        }
+        
+        .parameters-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .parameter-card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .parameter-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .parameter-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .parameter-title i {
+            margin-right: 8px;
+            color: #e67e22;
+            font-size: 1.1rem;
+        }
+        
+        .parameter-value {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .features-section {
+            margin-bottom: 40px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .feature-card {
+            background-color: #f8faf8;
+            border-radius: 16px;
+            padding: 25px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(0, 100, 0, 0.1);
+            min-height: 160px;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 100, 0, 0.1);
+            background-color: #f0f7f0;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2d5a27;
+            font-size: 28px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 100, 0, 0.1);
+            flex-shrink: 0;
+            margin: 0;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            background-color: #2d5a27;
+            color: #fff;
+        }
+        
+        .feature-text {
+            font-size: 0.95rem;
+            color: #2d5a27;
+            font-weight: 500;
+            line-height: 1.4;
+            margin: 0;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .benefits-section {
+            margin-bottom: 40px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .benefit-card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: #e67e22;
+            font-size: 1.8rem;
+        }
+        
+        .benefit-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .product-visual {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            position: relative;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .product-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+            padding: 0;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            padding: 15px;
+        }
+        
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 350px;
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #e67e22;
+            background: rgba(255, 255, 255, 0.9);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            --swiper-navigation-size: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .swiper-pagination {
+            position: absolute;
+            bottom: 10px !important;
+        }
+        
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background: #e67e22;
+            opacity: 0.5;
+        }
+        
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #e67e22;
+        }
+        
+        .buy-now-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 18px 0;
+            background-color: #e67e22;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            gap: 8px;
+        }
+        
+        .buy-now-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+        
+        .buy-now-btn:hover {
+            background-color: #d35400;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(230, 126, 34, 0.4);
+        }
+        
+        .buy-now-btn:hover::before {
+            left: 100%;
+        }
+        
+        .buy-now-btn i {
+            margin-right: 0;
+            font-size: 1.4rem;
+        }
+
+        .buy-now-btn .mobile-text {
+            display: none;
+        }
+
+        .buy-now-btn .desktop-text {
+            display: inline;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 992px) {
+            .product-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .product-info, .product-visual {
+                max-width: 100%;
+            }
+            
+            .parameters-grid, .features-grid, .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .product-page {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+            
+            .parameters-section {
+                margin-top: 20px;
+            }
+            
+            .parameters-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 0 5px;
+            }
+            
+            .parameter-card {
+                padding: 15px;
+                border-radius: 12px;
+                background: #fff;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            }
+            
+            .parameter-title {
+                font-size: 0.95rem;
+                margin-bottom: 6px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .parameter-title i {
+                font-size: 1.1rem;
+                color: #e67e22;
+            }
+            
+            .parameter-value {
+                font-size: 1rem;
+                color: #2c3e50;
+                font-weight: 500;
+            }
+            
+            .product-container {
+                padding: 0 15px;
+                gap: 30px;
+            }
+            
+            .product-visual {
+                order: -1;
+                margin-bottom: 30px;
+                max-width: 100%;
+                position: relative;
+                padding-bottom: 100px;
+            }
+            
+            .product-image-container {
+                max-width: 280px;
+                padding: 15px;
+                margin: 0 auto;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            }
+            
+            .product-image {
+                max-height: 350px;
+                width: 100%;
+                object-fit: contain;
+            }
+            
+            .buy-now-btn {
+                position: fixed;
+                bottom: 25px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: calc(100% - 40px);
+                max-width: 400px;
+                padding: 16px 0;
+                border-radius: 30px;
+                font-size: 1.1rem;
+                z-index: 100;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+                margin: 0;
+                background-color: #25D366;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 15px !important;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 15px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .product-page {
+                padding-top: 85px;
+            }
+            
+            .parameters-grid {
+                gap: 12px;
+            }
+            
+            .parameter-card {
+                padding: 12px;
+            }
+            
+            .parameter-title {
+                font-size: 0.9rem;
+            }
+            
+            .parameter-value {
+                font-size: 0.95rem;
+            }
+            
+            .product-title {
+                font-size: 1.8rem;
+            }
+            
+            .product-price {
+                font-size: 1.6rem;
+            }
+            
+            .product-image-container {
+                max-width: 240px;
+                padding: 12px;
+            }
+            
+            .product-image {
+                max-height: 300px;
+            }
+            
+            .product-visual {
+                padding-bottom: 90px;
+            }
+            
+            .buy-now-btn {
+                padding: 14px 0;
+                font-size: 1rem;
+                bottom: 20px;
+                width: calc(100% - 30px);
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .product-page {
+                padding-top: 75px;
+            }
+            
+            .parameters-grid {
+                gap: 10px;
+            }
+            
+            .parameter-card {
+                padding: 10px;
+            }
+            
+            .parameter-title {
+                font-size: 0.85rem;
+                gap: 6px;
+            }
+            
+            .parameter-value {
+                font-size: 0.9rem;
+            }
+            
+            .product-image-container {
+                max-width: 220px;
+                padding: 10px;
+            }
+            
+            .product-image {
+                max-height: 280px;
+            }
+            
+            .buy-now-btn {
+                padding: 12px 0;
+                bottom: 15px;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .product-container {
+                gap: 60px;
+            }
+            
+            .product-image-container {
+                height: 500px;
+            }
+            
+            .product-visual {
+                max-width: 400px;
+            }
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header.hide {
+            transform: translateY(-100%);
+        }
+
+        .header.show {
+            transform: translateY(0);
+        }
+
+        .header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Adjust main content to account for fixed header */
+        .product-page {
+            padding-top: 80px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .product-page {
+                padding-top: 60px;
+            }
+        }
+
+        /* Ensure main content starts below header */
+        main {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://bhbe8jcfcuqg0rmn.public.blob.vercel-storage.com/mahi_logo-lC7zptgxXhLtDTt1b7XjeU4DcloF6n.jpg" alt="Maahi Edible Oils Logo" class="logo-img">
+                    <span class="logo-text">Maahi</span>
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fa-solid fa-seedling"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html"><span>Home</span></a></li>
+                <li><a href="about.html"><span>About Us</span></a></li>
+                <!-- <li><a href="products.html" class="active"><span>Products</span></a></li> -->
+                <li><a href="contact.html"><span>Contact</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product-page">
+            <div class="product-container">
+                <div class="product-info" data-aos="fade-right">
+                    <h1 class="product-title">Natural Chikki Bars <span class="product-price">399</span></h1>
+                    <p class="product-summary">Traditional sweet made with raw roasted peanuts, premium sesame and pure jaggery - a perfect blend of taste and nutrition.</p>
+                    
+                    <div class="parameters-section">
+                        <h2 class="section-title">Parameters</h2>
+                        <div class="parameters-grid">
+                            <div class="parameter-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="parameter-title">
+                                    <i class="fas fa-oil-can"></i>
+                                    Energy
+                                </div>
+                                <div class="parameter-value">High</div>
+                            </div>
+                            <div class="parameter-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="parameter-title">
+                                    <i class="fas fa-ban"></i>
+                                    Fat
+                                </div>
+                                <div class="parameter-value">Zero</div>
+                            </div>
+                            <div class="parameter-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="parameter-title">
+                                    <i class="fas fa-heartbeat"></i>
+                                    Cholesterol
+                                </div>
+                                <div class="parameter-value">Zero</div>
+                            </div>
+                            <div class="parameter-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="parameter-title">
+                                    <i class="fas fa-chart-pie"></i>
+                                    Protein
+                                </div>
+                                <div class="parameter-value">High</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="features-section">
+                        <h2 class="section-title">What They Have</h2>
+                        <div class="features-grid">
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="feature-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div class="feature-text">Made with Natural Ingredients - Raw roasted peanuts, premium sesame and pure jaggery</div>
+                            </div>
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="feature-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="feature-text">100% Natural & No Artificial Additives - Free from preservatives</div>
+                            </div>
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="feature-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="feature-text">Energy Booster - Perfect for a quick and healthy snack</div>
+                            </div>
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="feature-icon">
+                                    <i class="fas fa-cookie-bite"></i>
+                                </div>
+                                <div class="feature-text">Crunchy & Satisfying - A delightful treat for all ages</div>
+                            </div>
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                                <div class="feature-icon">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <div class="feature-text">Traditional & Authentic Taste - Inspired by age-old recipes</div>
+                            </div>
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                                <div class="feature-icon">
+                                    <i class="fas fa-bone"></i>
+                                </div>
+                                <div class="feature-text">Rich in Calcium & Iron - Supports bone health and boosts immunity</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="benefits-section">
+                        <h2 class="section-title">What They Give</h2>
+                        <div class="benefits-grid">
+                            <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                <div class="benefit-title">High in Protein</div>
+                            </div>
+                            <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-bone"></i>
+                                </div>
+                                <div class="benefit-title">Strengthens Bones</div>
+                            </div>
+                            <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="benefit-title">Heart-Healty Omega-3 Fats</div>
+                            </div>
+                            <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="benefit-title">Rich in Antioxidants</div>
+                            </div>
+                            <div class="benefit-card" data-aos="fade-up" data-aos-delay="500">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="benefit-title">Natural Energy Source</div>
+                            </div>
+                            <div class="benefit-card" data-aos="fade-up" data-aos-delay="600">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div class="benefit-title">Aids Digestion</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-visual" data-aos="fade-left">
+                    <div class="product-image-container">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="https://bhbe8jcfcuqg0rmn.public.blob.vercel-storage.com/chikki-removebg-preview-0Jn58ZXNzPup6vcrwjUVtoV2ax0jmR.png" alt="Premium Groundnut Oil Front View" class="product-image">
+                            </div>
+                                <div class="swiper-slide">
+                                    <img src="https://bhbe8jcfcuqg0rmn.public.blob.vercel-storage.com/chiki2-jcoeIFGKN17KU1WYoJfebT4d7LczbQ.jpg" alt="Premium Groundnut Oil Back View" class="product-image">
+                            </div>
+                        </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/919704839545?text=I'm%20interested%20in%20buying%20Premium%20Peanut%20Oil" class="buy-now-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        <span class="mobile-text">Order Now</span>
+                        <span class="desktop-text">Order from WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: maahiedibleoils.bobbili@gmail.com</p>
+                    <p>Phone: +918839511896</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Maahi Edible Oils. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS animation library
+            AOS.init({
+                duration: 800,
+                easing: 'ease',
+                once: true
+            });
+
+            // Header hide/show functionality
+            const header = document.querySelector('.header');
+            let lastScrollY = window.scrollY;
+            let isScrolling;
+            let touchTimeout;
+
+            // Show header initially
+            header.classList.add('show');
+
+            // Handle scroll events
+            window.addEventListener('scroll', () => {
+                clearTimeout(isScrolling);
+                clearTimeout(touchTimeout);
+
+                // Show header on any scroll interaction
+                header.classList.remove('hide');
+                header.classList.add('show');
+
+                // Handle scroll direction
+                if (window.scrollY > lastScrollY) {
+                    // Scrolling down
+                    if (window.scrollY > 100) {
+                        header.classList.add('hide');
+                        header.classList.remove('show');
+                    }
+                }
+                lastScrollY = window.scrollY;
+
+                // Add scrolled class for background effect
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // Set a timeout to hide header after scrolling stops
+                isScrolling = setTimeout(() => {
+                    if (window.scrollY > 100) {
+                        header.classList.add('hide');
+                        header.classList.remove('show');
+                    }
+                }, 2000);
+            });
+
+            // Handle touch events
+            document.addEventListener('touchstart', () => {
+                clearTimeout(touchTimeout);
+                header.classList.remove('hide');
+                header.classList.add('show');
+            });
+
+            document.addEventListener('touchend', () => {
+                clearTimeout(touchTimeout);
+                touchTimeout = setTimeout(() => {
+                    if (window.scrollY > 100) {
+                        header.classList.add('hide');
+                        header.classList.remove('show');
+                    }
+                }, 2000);
+            });
+
+            // Show header when hovering near top of screen
+            document.addEventListener('mousemove', (e) => {
+                if (e.clientY < 150) {
+                    header.classList.remove('hide');
+                    header.classList.add('show');
+                    clearTimeout(touchTimeout);
+                    touchTimeout = setTimeout(() => {
+                        if (window.scrollY > 100) {
+                            header.classList.add('hide');
+                            header.classList.remove('show');
+                        }
+                    }, 2000);
+                }
+            });
+
+            // Mobile menu toggle functionality
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuToggle && navLinks) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    document.body.classList.toggle('nav-open');
+                    
+                    // Update ARIA state
+                    const isExpanded = this.classList.contains('active');
+                    this.setAttribute('aria-expanded', isExpanded);
+                });
+                
+                // Close menu when clicking on links
+                navLinks.querySelectorAll('a').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        mobileMenuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        document.body.classList.remove('nav-open');
+                        mobileMenuToggle.setAttribute('aria-expanded', false);
+                    });
+                });
+            }
+            const swiper = new Swiper('.swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                effect: 'slide',
+                grabCursor: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+            });
+        });
+    </script>
+</body>
+</html> 
